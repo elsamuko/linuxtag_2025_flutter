@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Second extends StatefulWidget {
-  Second({Key? key}) : super(key: key);
+  const Second({super.key});
 
   @override
-  SecondState createState() => SecondState();
+  State<Second> createState() => SecondState();
 }
 
 class SecondState extends State<Second> {

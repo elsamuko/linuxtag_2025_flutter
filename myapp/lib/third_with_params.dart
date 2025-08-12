@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ThirdWithParams extends StatefulWidget {
   final String param;
-  ThirdWithParams(this.param, {Key? key}) : super(key: key);
+  const ThirdWithParams(this.param, {super.key});
 
   @override
-  ThirdWithParamsState createState() => ThirdWithParamsState();
+  State<ThirdWithParams> createState() => ThirdWithParamsState();
 }
 
 class ThirdWithParamsState extends State<ThirdWithParams> {
@@ -13,7 +13,7 @@ class ThirdWithParamsState extends State<ThirdWithParams> {
   Widget build(BuildContext context) {
     TextButton buttonWithParam = TextButton(
       style: TextButton.styleFrom(
-        primary: Colors.white,
+        foregroundColor: Colors.white,
         backgroundColor: Colors.blue,
       ),
       child: Text("Go back with param"),

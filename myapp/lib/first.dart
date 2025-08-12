@@ -3,10 +3,10 @@ import 'second.dart';
 import 'third_with_params.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
   final String title;
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -24,20 +24,20 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> widgets = [
       TextButton(
         style: TextButton.styleFrom(
-          primary: Colors.white,
+          foregroundColor: Colors.white,
           backgroundColor: Colors.blue,
         ),
-        child: Text("Go to second"),
         key: Key("second"),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute<Second>(builder: (BuildContext context) {
             return Second();
           }));
         },
+        child: Text("Go to second"),
       ),
       TextButton(
         style: TextButton.styleFrom(
-          primary: Colors.white,
+          foregroundColor: Colors.white,
           backgroundColor: Colors.blue,
         ),
         child: Text("Go to third with param"),
@@ -55,8 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text(
-          'You have pushed the button $_counter times',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
         ),
       )
     ];
