@@ -12,7 +12,7 @@ takeScreenshot(FlutterDriver driver, String path) async {
 // https://flutter.dev/docs/cookbook/testing/integration/introduction
 void main() {
   group('MyApp', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -20,9 +20,8 @@ void main() {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        await driver.close();
-      }
+      print('tear down');
+      await driver.close();
     });
 
     test('check driver health', () async {
@@ -30,7 +29,7 @@ void main() {
       print(health.status);
     });
 
-    test('screenshot add cluster', () async {
+    test('screenshot second screen', () async {
       // screenshot
       await takeScreenshot(driver, 'first');
 
