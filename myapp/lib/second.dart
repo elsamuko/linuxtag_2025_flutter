@@ -10,6 +10,8 @@ class Second extends StatefulWidget {
 class SecondState extends State<Second> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Second")));
+    return Scaffold(
+        appBar: AppBar(title: Text('Second')),
+        body: Center(child: Text("Second")));
   }
 }
