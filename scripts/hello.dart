@@ -17,9 +17,14 @@ void fileFunc() async {
 }
 
 Future<String> GET(String url) async {
-  HttpClientRequest request = await HttpClient().getUrl(Uri.parse(url));
-  HttpClientResponse response = await request.close();
-  return utf8.decoder.bind(response).first;
+  final client = HttpClient();
+  try {
+    HttpClientRequest request = await client.getUrl(Uri.parse(url));
+    HttpClientResponse response = await request.close();
+    return await utf8.decoder.bind(response).first;
+  } finally {
+    client.close(force: true);
+  }
 }
 
 void json() {
@@ -31,6 +36,7 @@ void json() {
 }
 
 int main() {
+// Future<int> main() async {
   // stdout
   print("Hello Dart");
 
