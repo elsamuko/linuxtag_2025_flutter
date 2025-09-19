@@ -38,7 +38,8 @@ void json() {
 int main() {
 // Future<int> main() async {
   // stdout
-  print("Hello Dart");
+  int currentYear = DateTime.now().year;
+  print("Hello Linuxtag ${currentYear}");
 
   // lists
   List l = [1,2,3];
