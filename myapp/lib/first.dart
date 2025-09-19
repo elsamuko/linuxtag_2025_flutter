@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Text("Go to third with param"),
         onPressed: () async {
           String? rv = await Navigator.of(context).push(MaterialPageRoute<String>(builder: (BuildContext context) {
-            return ThirdWithParams("Hello");
+            return ThirdWithParams("Clicked $_counter");
           }));
           if (rv != null) {
             fromThird = rv;
